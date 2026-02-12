@@ -3,98 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мій Біо-сайт</title>
+    <title>Ch4osic Bio</title>
     <style>
-        /* Основні налаштування */
+        :root {
+            --primary-color: #e94560;
+            --bg-color: #0a0a0c;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 20% 30%, #16213e 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, #1a1a2e 0%, transparent 50%);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             color: white;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            overflow-x: hidden;
         }
 
-        /* Контейнер */
         .container {
-            width: 100%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 420px;
+            padding: 40px 20px;
             text-align: center;
+            backdrop-filter: blur(10px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Аватарка */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 3px solid #0f3460;
-            margin-bottom: 15px;
             object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, #fff, var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        p {
-            font-size: 16px;
-            color: #95a5a6;
+        .username {
+            color: #888;
+            font-size: 14px;
             margin-bottom: 30px;
+            display: block;
         }
 
-        /* Кнопки-посилання */
-        .links-container {
+        .links {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .link-card {
-            background-color: #0f3460;
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
             color: white;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: transform 0.2s, background-color 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
 
-        .link-card:hover {
-            background-color: #e94560;
-            transform: translateY(-3px);
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
         }
 
-        /* Футер */
+        .link-item:hover::before {
+            left: 100%;
+        }
+
+        .link-item:hover {
+            background: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+            border-color: transparent;
+        }
+
         footer {
-            margin-top: 50px;
-            font-size: 12px;
-            opacity: 0.5;
+            margin-top: 40px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #444;
+        }
+
+        /* Ефект пульсації для фону */
+        .glow {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.05) 0%, transparent 70%);
         }
     </style>
 </head>
 <body>
 
+    <div class="glow"></div>
+
     <div class="container">
-        <img src="https://via.placeholder.com/100" alt="Avatar" class="profile-img">
+        <img src="https://i.postimg.cc/pT9yW5zL/image-792dbe.jpg" alt="Ch4osic" class="profile-img">
 
-        <h1>Твоє Ім'я / Нікнейм</h1>
-        <p>Короткий опис того, чим ти займаєшся або просто крута фраза.</p>
+        <h1>Vanya Sadovsky</h1>
+        <span class="username">@ch4osic</span>
 
-        <div class="links-container">
-            <a href="https://instagram.com/yourhandle" class="link-card" target="_blank">Instagram</a>
-            <a href="https://t.me/yourusername" class="link-card" target="_blank">Telegram</a>
-            <a href="https://tiktok.com/@yourhandle" class="link-card" target="_blank">TikTok</a>
-            <a href="mailto:youremail@example.com" class="link-card">Написати на пошту</a>
+        <div class="links">
+            <a href="https://discordapp.com/users/1056268573502349432" class="link-item" target="_blank">Discord Workspace</a>
+            <a href="https://www.tiktok.com/@ch4osic?is_from_webapp=1&sender_device=pc" class="link-item" target="_blank">TikTok Content</a>
+            <a href="https://www.instagram.com/vanya_sadovsky?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="link-item" target="_blank">Instagram Profile</a>
         </div>
-    </div>
 
-    <footer>© 2026 Всі права захищені</footer>
+        <footer>Stay Chaos</footer>
+    </div>
 
 </body>
 </html>

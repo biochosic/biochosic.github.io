@@ -3,135 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CH4OSIC BIO</title>
+    <title>CH4OSIC | Bio</title>
     <style>
         :root {
-            --primary-color: #ff2d55; /* Яскравий неоновий колір */
-            --bg-color: #0d0d12;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --primary: #ff2d55;
+            --accent: #00d2ff;
+            --bg: #050505;
         }
 
         body {
             margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 45, 85, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 112, 243, 0.1) 0%, transparent 40%);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
             color: white;
+            font-family: 'Inter', -apple-system, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at top left, rgba(255, 45, 85, 0.15), transparent 40%),
+                radial-gradient(circle at bottom right, rgba(0, 210, 255, 0.15), transparent 40%);
         }
 
-        .container {
+        .card {
             width: 90%;
-            max-width: 400px;
-            padding: 50px 25px;
+            max-width: 380px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 35px;
             text-align: center;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-            animation: slideUp 0.8s ease-out;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Твоя картинка з мишею */
-        .profile-img {
-            width: 160px;
-            height: 160px;
+        /* Твоя аватарка */
+        .avatar {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 0 30px rgba(255, 45, 85, 0.4);
-            margin-bottom: 25px;
-            transition: all 0.4s ease;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 25px rgba(255, 45, 85, 0.5);
+            margin-bottom: 20px;
         }
 
-        .profile-img:hover {
-            transform: scale(1.05) rotate(3deg);
-            box-shadow: 0 0 40px rgba(255, 45, 85, 0.6);
-        }
-
-        /* Стиль для CH4OSIC */
         h1 {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 900;
-            margin: 0;
+            margin: 10px 0;
             text-transform: uppercase;
-            letter-spacing: -2px;
-            background: linear-gradient(to bottom, #fff 40%, var(--primary-color) 100%);
+            letter-spacing: -1.5px;
+            background: linear-gradient(180deg, #fff 0%, #888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
         }
 
-        .tag {
-            color: #666;
+        .nickname {
+            color: var(--primary);
             font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 35px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
             display: block;
         }
 
-        .links-group {
+        .links {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .link-card {
+        .link {
+            padding: 16px;
             background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
             color: white;
             text-decoration: none;
-            padding: 18px;
-            border-radius: 20px;
-            font-size: 16px;
             font-weight: 600;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            transition: 0.3s all ease;
         }
 
-        .link-card:hover {
+        .link:hover {
             background: white;
             color: black;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: scale(1.03);
         }
 
         footer {
-            margin-top: 40px;
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #333;
+            margin-top: 35px;
+            font-size: 10px;
+            opacity: 0.3;
+            letter-spacing: 4px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://i.postimg.cc/pT9yW5zL/image-792dbe.jpg" alt="CH4OSIC" class="profile-img">
+    <div class="card">
+        <img src="https://i.postimg.cc/pT9yW5zL/image-792dbe.jpg" alt="CH4OSIC" class="avatar">
 
         <h1>CH4OSIC</h1>
-        <span class="tag">@ch4osic</span>
+        <span class="nickname">@CH4OSIC</span>
 
-        <div class="links-group">
-            <a href="https://discordapp.com/users/1056268573502349432" class="link-card" target="_blank">Discord</a>
-            <a href="https://www.tiktok.com/@ch4osic" class="link-card" target="_blank">TikTok</a>
-            <a href="https://www.instagram.com/vanya_sadovsky" class="link-card" target="_blank">Instagram</a>
+        <div class="links">
+            <a href="https://discordapp.com/users/1056268573502349432" class="link" target="_blank">DISCORD</a>
+            <a href="https://www.tiktok.com/@ch4osic" class="link" target="_blank">TIKTOK</a>
+            <a href="https://www.instagram.com/vanya_sadovsky" class="link" target="_blank">INSTAGRAM</a>
         </div>
 
         <footer>STAY CHAOS</footer>
